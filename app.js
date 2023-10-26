@@ -2,32 +2,6 @@
 //variable q mantiene el estado del carrito visible
 var carritoVisible = false;
 //espero q se carguen los elementos de la pag
-if(document.readyState=='loading'){
-    document.addEventListener('DOMContentLoaded',ready)
-}else{
-    ready();
-}
-
-function ready(){
-    //agrego funcionalidad a los botones del carrito
-    var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
-    for(var i=0; i < botonesEliminarItem.length;i++){
-        var button = botonesEliminarItem[i];
-        button.addEventListener('click', eliminarItemCarrito);
-    }
-}
-//elimino el item seleccionado del carrito
-function eliminarItemCarrito(event){
-    var buttonClicked = event.target;
-    buttonClicked.parentElement.remove();
-
-    //actualizo el total del carrito
-    actualizarTotalCarrito();
-
-    //controlo si hay elementos en el carrito una vez q se elimino y si no hay oculto el carrito
-    ocultarCarrito();
-}
-
 function actualizarTotalCarrito(){
     //selecciono el contenedor carrito
     var carritoContenedor = document.getElementsByClassName('carrito')[0];
@@ -60,3 +34,30 @@ function ocultarCarrito(){
         carritoVisible = false;
     }
 }
+//elimino el item seleccionado del carrito
+function eliminarItemCarrito(event){
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.remove();
+
+    //actualizo el total del carrito
+    actualizarTotalCarrito();
+
+    //controlo si hay elementos en el carrito una vez q se elimino y si no hay oculto el carrito
+    ocultarCarrito();
+}
+function ready(){
+    //agrego funcionalidad a los botones del carrito
+    var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
+    for(var i=0; i < botonesEliminarItem.length;i++){
+        var button = botonesEliminarItem[i];
+        button.addEventListener('click', eliminarItemCarrito);
+    }
+}
+if(document.readyState=='loading'){
+    document.addEventListener('DOMContentLoaded',ready)
+}else{
+    ready();
+}
+
+
+
