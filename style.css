@@ -12,6 +12,21 @@
     box-sizing: border-box;
 }
 
+/* Nuevo css para icono sin before  */
+.btn_eliminar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0;
+    box-sizing: border-box;
+    top: 15px;
+    right: 15px;
+    position: absolute
+}
 .navbar{
     background-color: #a9b0b1;
     text-shadow: 1px #000;
